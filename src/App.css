@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 10px;
+  display: flex;
+  max-width: 200px;
+  height: 470px;
+  border: 2px solid #ccc;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.masonry {
+  margin: auto;
+  max-width: 1400px;
+}
+
+.masonry-item {
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.masonry-image {
+  max-width: 200px;
+  height: auto;
+}
