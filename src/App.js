@@ -1,15 +1,24 @@
 import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 import AllPinsContainer from "./Containers/AllPinsContainer";
+import Navbar from "./Components/Navbar";
+
+import Routes from "./routes";
 import "./App.css";
+
+const client = new ApolloClient({
+  uri: "/graphql"
+});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">Navigatin goes here</header>
-
-        <AllPinsContainer />
-      </div>
+      <ApolloProvider client={client}>
+        <div className="App">
+          <Routes />
+        </div>
+      </ApolloProvider>
     );
   }
 }

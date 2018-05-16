@@ -3,29 +3,45 @@
   box-sizing: border-box;
 }
 
-.container {
-  padding: 10px;
-  display: flex;
-  max-width: 200px;
-  height: 470px;
-  border: 2px solid #ccc;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 .masonry {
   margin: auto;
   max-width: 1400px;
 }
 
 .masonry-item {
+  display: grid;
+  grid-template-areas: "image image image" "text text text" "user heart likes";
   border: 1px solid black;
   margin-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .masonry-image {
   max-width: 200px;
   height: auto;
+  grid-area: image;
+}
+
+.masonry-text {
+  grid-area: text;
+}
+
+.masonry-user {
+  grid-area: user;
+}
+
+.masonry-heart {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  grid-area: heart;
+  color: red;
+}
+
+.masonry-likes {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  grid-area: likes;
+  padding-left: 2px;
 }

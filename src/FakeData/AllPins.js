@@ -14,7 +14,7 @@ const data = [
   {
     image: "https://i.imgur.com/RTG9kTM.png",
     text: "Captain Cat",
-    user: "loolY",
+    user: "Captain Jack",
     likes: 2
   },
   {
