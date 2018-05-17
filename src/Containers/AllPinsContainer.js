@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Masonry from "react-masonry-component";
 
 import AllPinsList from "../Components/AllPinsList";
 

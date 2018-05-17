@@ -9,11 +9,9 @@ export default class componentName extends Component {
     return (
       <Navbar>
         <Navbar.Header>
-          <Navbar.Brand>
-            <a className="brand" href="#">
-              Rintrest
-            </a>
-          </Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>Rintrest</Navbar.Brand>
+          </LinkContainer>
         </Navbar.Header>
         <Nav pullRight>
           <LinkContainer to="/register" eventKey={1}>

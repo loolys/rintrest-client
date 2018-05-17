@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import AllPinsContainer from "./Containers/AllPinsContainer";
-import Navbar from "./Components/Navbar";
 
 import Routes from "./routes";
 import "./App.css";
