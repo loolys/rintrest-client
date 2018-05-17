@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 import "./Navbar.css";
 
@@ -16,9 +16,9 @@ export default class componentName extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
-          <NavItem eventKey={1}>
-            <Link to="/register">Register</Link>
-          </NavItem>
+          <LinkContainer to="/register" eventKey={1}>
+            <NavItem>Register</NavItem>
+          </LinkContainer>
         </Nav>
       </Navbar>
     );

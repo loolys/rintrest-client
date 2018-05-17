@@ -12,7 +12,7 @@ const AllPinsList = () => (
       console.log(data.allPins);
 
       const childElements = data.allPins.map(data => (
-        <div className="masonry-item">
+        <div className="masonry-item" key={data._id}>
           <img className="masonry-image" src={data.image} />
           <p className="masonry-text">{data.text}</p>
           <a href="#" className="masonry-user">
