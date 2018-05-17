@@ -5,7 +5,7 @@ import { CREATE_USER } from "../Queries/UserMutations";
 
 import { Form, FormGroup, Col, FormControl, Button } from "react-bootstrap";
 
-export default () => (
+export default ({ handleRegistration }) => (
   <Mutation mutation={CREATE_USER}>
     {createUser => (
       <Formik
@@ -32,10 +32,11 @@ export default () => (
           const response = await createUser({
             variables: { username: values.username, password: values.password }
           });
-          console.log(response.data);
           if (!response.data.createUser.success) {
             console.log("runs");
             setFieldError("username", response.data.createUser.error.message);
+          } else {
+            handleRegistration(response.data.createUser);
           }
         }}
         render={({ values, errors, handleChange, handleSubmit }) => (
