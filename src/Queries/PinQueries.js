@@ -10,3 +10,14 @@ export const ALL_PINS = gql`
     }
   }
 `;
+
+export const USERS_PINS = gql`
+  query($header: String!) {
+    usersPins(header: $header) {
+      _id
+      image
+      text
+      user
+    }
+  }
+`;

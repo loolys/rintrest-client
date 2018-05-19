@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Panel } from "react-bootstrap";
+import { Panel } from "react-bootstrap";
 import Register from "../Components/Register";
 
 export default class RegisterContainer extends Component {

@@ -45,3 +45,15 @@
   grid-area: likes;
   padding-left: 2px;
 }
+
+.modal-container {
+  position: relative;
+}
+.modal-container .modal,
+.modal-container .modal-backdrop {
+  position: absolute;
+}
+
+.create-pin {
+  margin-bottom: 2rem;
+}
