@@ -57,3 +57,11 @@
 .create-pin {
   margin-bottom: 2rem;
 }
+
+.create-pin-form {
+  padding: 1rem 0;
+}
+
+.create-pin-form-input {
+  padding-bottom: 1rem;
+}
