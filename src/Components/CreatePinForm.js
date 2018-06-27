@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import _ from "lodash";
 import { Mutation } from "react-apollo";
-import { CREATE_PIN, USERS_PINS } from "../Queries/PinQueries";
+import { CREATE_PIN } from "../Queries/PinQueries";
 
 const divStyle = {
   display: "flex",
@@ -39,7 +39,7 @@ export default ({ handleClose, validateForm, user }) => {
           onSubmit={async (values, { setSubmitting, setErrors }) => {
             const valid = validateForm(values);
             if (_.isEmpty(valid)) {
-              const response = await createPin({
+              await createPin({
                 variables: {
                   image: values.image,
                   text: values.text,
@@ -57,7 +57,7 @@ export default ({ handleClose, validateForm, user }) => {
             <div>
               {values.image && (
                 <div style={divStyle}>
-                  <img src={values.image} />
+                  <img src={values.image} alt="Your post" />
                 </div>
               )}
 

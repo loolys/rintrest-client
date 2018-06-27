@@ -8,20 +8,24 @@ class Likes extends React.Component {
   state = {
     token: "",
     user: "",
-    likeCount: 0
+    likeCount: 0,
+    likes: [],
+    userLiked: false
   };
 
   componentDidMount = () => {
-    this.setState({
-      token: localStorage.getItem("token") || "",
-      likeCount: this.props.likeCount
-    });
     try {
       const { username } = decode(localStorage.getItem("token"));
       this.setState({
-        user: username
+        user: username,
+        userLiked: this.props.likes.indexOf(username) !== -1 ? true : false
       });
     } catch (e) {}
+    this.setState({
+      token: localStorage.getItem("token") || "",
+      likeCount: this.props.likeCount,
+      likes: this.props.likes
+    });
   };
 
   handleLike = async likePin => {
@@ -40,6 +44,7 @@ class Likes extends React.Component {
           <React.Fragment>
             <i
               className="fas fa-heart masonry-heart"
+              style={{ color: this.state.userLiked ? "red" : "grey" }}
               onClick={async () => {
                 if (this.state.user) {
                   const result = await likePin({
@@ -48,11 +53,18 @@ class Likes extends React.Component {
                       id: this.props.pinId
                     }
                   });
-                  console.log(result);
+                  this.setState({
+                    likeCount: result.data.likePin.likeCount,
+                    likes: result.data.likePin.likes,
+                    userLiked:
+                      result.data.likePin.likes.indexOf(this.state.user) !== -1
+                        ? true
+                        : false
+                  });
                 }
               }}
             />{" "}
-            <span className="masonry-likes">{this.props.likeCount}</span>
+            <span className="masonry-likes">{this.state.likeCount}</span>
           </React.Fragment>
         )}
       </Mutation>

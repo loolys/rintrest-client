@@ -6,12 +6,14 @@ import Profile from "../Components/Profile";
 export default class ProfileContainer extends Component {
   state = {
     token: "",
-    user: ""
+    user: "",
+    profile: ""
   };
 
   componentDidMount = () => {
     this.setState({
-      token: localStorage.getItem("token") || ""
+      token: localStorage.getItem("token") || "",
+      profile: this.props.match.params.user
     });
     try {
       const { username } = decode(localStorage.getItem("token"));
@@ -23,11 +25,12 @@ export default class ProfileContainer extends Component {
 
   render() {
     const { token, user } = this.state;
-    console.log(token);
     return (
       <div>
-        <CreatePin token={token} user={user} />
-        <Profile token={token} />
+        {this.state.user === this.state.profile && (
+          <CreatePin token={token} user={user} />
+        )}
+        <Profile profile={this.state.profile} />
       </div>
     );
   }

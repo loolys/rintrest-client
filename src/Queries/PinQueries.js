@@ -20,6 +20,8 @@ export const USERS_PINS = gql`
       image
       text
       user
+      likeCount
+      likes
     }
   }
 `;
